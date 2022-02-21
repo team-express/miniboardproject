@@ -55,6 +55,8 @@ public class BoardController {
 
 	@PostMapping("/edit/{boardId}")
 	public String edit(@PathVariable Long boardId, @ModelAttribute BoardDTO boardDTO) {
+		boardDTO.setId(boardId);
+		log.info("boardDTO={}",boardDTO);
 		boardService.edit(boardDTO);
 		return "redirect:/read/{boardId}";
 	}
@@ -62,6 +64,6 @@ public class BoardController {
 	@PostMapping("/remove/{boardId}")
 	public String remove(@PathVariable Long boardId) {
 		boardService.remove(boardId);
-		return "list";
+		return "redirect:/list";
 	}
 }

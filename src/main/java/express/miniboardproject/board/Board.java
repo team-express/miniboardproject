@@ -1,8 +1,10 @@
 package express.miniboardproject.board;
 
 import lombok.Getter;
+import lombok.ToString;
 
 @Getter
+@ToString
 public class Board {
 	Long id;
 	String title;

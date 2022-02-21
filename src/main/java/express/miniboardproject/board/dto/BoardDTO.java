@@ -3,10 +3,8 @@ package express.miniboardproject.board.dto;
 import express.miniboardproject.board.Board;
 import lombok.Getter;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
-@ToString
 @Setter
 public class BoardDTO {
 	Long id;

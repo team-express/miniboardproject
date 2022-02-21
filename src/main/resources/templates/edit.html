@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
 </head>
 <body>
-    <form th.action="@{/edit/{boardId}(boardId=${dto.id})}" method="post">
-    <label>title</label>
-    <input th.value="${dto.title}" name="title"/>
-
-    <label>content</label>
-    <textarea name="content">
+<form id="editForm" th:action="@{/edit/{boardId}(boardId=${dto.id})}" method="post">
+  <label>title</label>
+  <input th:value="${dto.title}" name="title"/>
+  <label>content</label>
+  <textarea name="content">
         [[${dto.content}]]
     </textarea>
-    </form>
+</form>
 <button th:onclick="|location.href='@{/list}'|">목록</button>
-<button type="submit">수정</button>
+<button id="editButton" type="submit">수정</button>
+<script>
+  document.querySelector("#editButton").addEventListener("click", () => {
+    document.querySelector("#editForm").submit();
+  });
+</script>
 </body>
 </html>

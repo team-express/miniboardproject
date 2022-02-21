@@ -6,15 +6,23 @@
 </head>
 <body>
     <label>title</label>
-    <input th.value="${dto}" readonly />
+    <input th:value="${dto.title}" readonly />
 
     <label>content</label>
     <textarea readonly>
-        [[${dto}]]
+        [[${dto.content}]]
     </textarea>
+
+    <form id="removeForm" th:method="post" th:action="@{/remove/{boardId}(boardId=${dto.id})}"></form>
 
     <button th:onclick="|location.href='@{/list}'|">목록</button>
     <button th:onclick="|location.href='@{/edit/{boardId}(boardId=${dto.id})}'|">수정</button>
-    <button th:onclick="|location.href='@{/remove/{boardId}(boardId=${dto.id})}'|">삭제</button>
+    <button id="removeButton">삭제</button>
+
+    <script>
+        document.querySelector("#removeButton").addEventListener("click",()=>{
+            document.querySelector("#removeForm").submit();
+        });
+    </script>
 </body>
 </html>

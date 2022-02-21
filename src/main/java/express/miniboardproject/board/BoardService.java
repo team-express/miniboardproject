@@ -27,9 +27,8 @@ public class BoardService {
 	}
 
 	public long edit(BoardDTO boardDTO) {
-		Long id = boardDTO.getId();
-		Board findBoard = repository.findById(id);
-		return repository.save(findBoard);
+		Board board = new Board(boardDTO.getId(), boardDTO.getTitle(), boardDTO.getContent());
+		return repository.save(board);
 	}
 
 	public void remove(Long id) {
