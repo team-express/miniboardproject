@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form id="writeForm" action="/write" method="post">
+    <input name="title" placeholder="title" />
+    <textarea name="content" placeholder="content">
+        </textarea>
+</form>
+<button th:onclick="|location.href='@{/list}'|">목록</button>
+<button id="writeButton">등록</button>
+<script>
+    document.querySelector("#writeButton").addEventListener("click",()=>{
+        document.querySelector("#writeForm").submit();
+    });
+</script>
+</body>
+</html>

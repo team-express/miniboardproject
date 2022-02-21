@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form th.action="@{/edit/{boardId}(boardId=${dto.id})}" method="post">
+    <label>title</label>
+    <input th.value="${dto.title}" name="title"/>
+
+    <label>content</label>
+    <textarea name="content">
+        [[${dto.content}]]
+    </textarea>
+    </form>
+<button th:onclick="|location.href='@{/list}'|">목록</button>
+<button type="submit">수정</button>
+</body>
+</html>

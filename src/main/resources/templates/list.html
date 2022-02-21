@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:each="dto : ${list}">
+        <label>title : </label>
+        <div>[[${dto.title}]]</div>
+
+        <label>content : </label>
+        <div>[[${dto.content}]]</div>
+    </div>
+
+    <button th:onclick="|location.href='@{/write}'|">글쓰기</button>
+</body>
+</html>
